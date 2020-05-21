@@ -4,6 +4,7 @@ const User = require('./models/user')
 const Task = require('./models/task')
 const userRouter = require('./routers/user')
 const taskRouter = require('./routers/task')
+// /users/paulina/mongodb/bin/mongod --dbpath=/Users/paulina/mongodb-data
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -28,14 +29,13 @@ app.listen(port, () => {
     console.log('Server is up on port ' + port)
 })
 
-const jwt = require('jsonwebtoken')
-
-const myFunction = async () => {
-    const token = jwt.sign({_id: 'abc123'}, 'thisismynewcourse', {expiresIn: '7 days'})
-    console.log('token:' + token)
-
-    const data = jwt.verify(token, 'thisismynewcourse')
-    console.log(data)
-}
-
-myFunction()
+// const main = async () => {
+//     // const task = await Task.findById('5ec637c1afa4db05c90ef641')
+//     // await task.populate('owner').execPopulate()
+//     // console.log(task.owner)
+//     const user = await User.findById('5ec650feb93e3506f50230da')
+//     await user.populate('tasks').execPopulate()
+//     console.log(user.tasks)
+//
+// }
+// main()
